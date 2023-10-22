@@ -3,17 +3,13 @@
 
 const express = require("express");
 
+const ExpressError = require("./expressError")
+const companiesRoutes = require("./routes/companies");
+const invoicesRoutes = require("./routes/invoices");
 
 const app = express();
-const ExpressError = require("./expressError")
-
-const db = require('./db');
 
 app.use(express.json());
-
-const companiesRoutes = require('./routes/companies');
-const invoicesRoutes = require('./routes/invoices');
-
 app.use('/companies', companiesRoutes);
 app.use('/invoices', invoicesRoutes);
 
